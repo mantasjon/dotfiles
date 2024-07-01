@@ -1,0 +1,89 @@
+{
+"layer": "top",
+"position": "top",
+
+"modules-left": ["clock","network"],
+//"modules-center": ["hyprland/window"],
+"modules-right":  ["hyprland/workspaces","pulseaudio","pulseaudio/slider","backlight","backlight/slider","custom/power"],
+
+"hyprland/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+},
+"hyprland/window": {
+	    "format": "{title}",
+ 		"max-length": 333,
+	    "seperate-outputs": true
+},
+"hyprland/workspaces": {
+  "format": "{icon}",
+  "on-click": "activate",
+  "format-icons": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "urgent": "",
+    "active": "<span foreground='#33CCFF'></span>",
+    "default": ""
+  },
+  "sort-by-number": true
+},
+"clock": {
+    "locale": "C", 
+    "format": "{:%I:%M %p}",
+    "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
+},
+"network": {
+  "interval": 2,
+  "format-wifi": "",
+  "format-ethernet": "",
+  "format-linked": " {ipaddr}",
+  "format-disconnected": "",
+  "format-disabled": "",
+  "tooltip": false,
+  "max-length": 20,
+  "min-length": 6,
+  "format-alt": "{essid}",
+},
+"backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon}",
+    "format-icons": ["", ""],
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+},
+"pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "phone-muted": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+},
+"pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+},
+"backlight/slider": {
+    "min": 5,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+},
+"custom/power": {
+    "format":"<span foreground='#33CCFF'>⏻</span>",
+    "on-click": "exec wlogout",
+    "tooltip": false,
+},
+}
